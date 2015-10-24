@@ -1,0 +1,30 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Edit
+		include ../../includes/head
+	body
+		.container(id='content')
+			.row.center-block
+				form.form-horizontal(method='post',action='/admin/catagory/save')
+					//- if article._id
+						input(type='hidden',name='article[_id]',value='#{article._id}')
+					//- .form-group
+					//- 		label.col-sm-2.control-label 文章类别
+					//- 		.col-sm-10
+					//- 			input#articleTag.form-control(type='text',name='article[tag]',value='article.tag')
+					//- .form-group
+					//- 		label.col-sm-2.control-label 选择分类
+					//- 		each cata in catagories
+					//- 			label
+					//- 		.col-sm-10
+					//- 			input#articleTag.form-control(type='text',name='article[tag]',value='article.tag')
+					.form-group
+							input#catagoryId.form-control(type='hidden',name='catagory[id]',value=catagory.id)
+					.form-group
+						label.col-sm-2.control-label 分类名称
+						.col-sm-10
+							input#catagoryName.form-control(type='text',name='catagory[name]',value=catagory.name)
+					.form-group
+						button.center-block.btn.btn-primary(type="submit") 提交

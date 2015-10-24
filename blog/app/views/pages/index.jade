@@ -1,0 +1,58 @@
+extends ../layout
+
+block content
+	.center-block
+		.panel.panel-danger
+			.panel-heading 
+				span 
+				span Welcome To My Blog~
+	section.center-block
+		each article in articles
+			.container-fluid
+				.row.center-block(id-'art')
+					.col-md-10.col-sm-10.col-xs-10(id='art-right')
+						.panel.panel-default
+							.panel-heading 
+								span.panel-title 
+									a(href='/article/#{article.id}')
+										strong #{article.title}
+								.pull-right
+									span.label.label-info
+										span.articleLike.glyphicon.glyphicon-heart #{article.like}	
+							.panel-body 
+								.center-block.article
+									.thumbnail.articleImg
+										img(src='/uploads/#{article.poster}')
+							.panel-footer
+								h4 #{article.title}
+									span.pull-right
+										a(href='/article/#{article.id}')
+											span.label.label-success more更多
+								hr
+								p #{article.content}
+					.col-md-2.col-sm-2.col-xs-2(id='art-left')
+						ul.list-group.text-center
+							li.list-group-item.list-group-item-success
+								span
+									strong.text-muted #{article.meta.createAt}
+							li.list-group-item
+								a.btn.btn-success.btn-sm(href='/articles/#{article.tag}') #{article.tag}
+								span
+							li.list-group-item
+								a.btn.btn-success.btn-sm(href='/article/comment/#{article.id}') 
+									span.glyphicon.glyphicon-pencil 
+									span Comment
+							.list-group-item
+								a.btn.btn-success.btn-sm.LikeBtn(href='/article/like/#{article.id}') 
+									span.glyphicon.glyphicon-heart 
+									span Like
+
+				
+		
+
+					
+
+
+		
+
+		

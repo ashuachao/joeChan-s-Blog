@@ -1,0 +1,58 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('../images/bg.jpg') no-repeat fixed top;
+  background-size: 100% 100%;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.article{
+	width: 100%;
+}
+.article .articleImg img{
+	width: 100%;
+	height: 150px;
+}
+
+#art{
+	width:90%;
+}
+#art-left{
+	padding: 0;
+}
+#art-right{
+	padding: 0;
+}
+#content{
+	width: 80%;
+	padding-top: 20px;
+	background-color: #eee;
+	min-width: 720px;
+	margin-top: 20px;
+}
+#perleft{
+	padding: 0;
+}
+#perright{
+	padding: 0;
+}
+#Manage{
+	width: 90%
+}
+#joelogin{
+	width: 300px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+#showError{
+	display: none;
+}
+
+#articleShow{
+	width: 90%;
+}

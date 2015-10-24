@@ -1,0 +1,24 @@
+.center-block(id='Manage')
+	.row
+		span.pull-right 
+			a(href='/admin/article/edit/#{article.id}').btn.btn-primary New Article
+		br
+		br
+		table.table.table-hover.table-bordered.text-center
+			thead
+				tr
+					th.text-center Cata
+					th.text-center Author
+					//- th Time
+					th.text-center View
+					th.text-center Modify
+					th.text-center Delete
+			tbody 
+				each article in articles
+					tr(class = 'article-#{article._id}')
+						td #{article.tag}
+						td #{article.author}
+						//- td #{article.meta.updateAt.format('MM/DD/YYYY')}
+						td: a.btn.btn-success.btn-sm(target='_blank',href='/article/#{article._id}') View
+						td: a.btn.btn-success.btn-sm(target='_blank',href='/admin/article/edit/#{article._id}') Modify
+						td: a.btn.btn-danger.btn-sm(data-id = '#{article._id}',href='/admin/article/delete/#{article._id}') Deletex

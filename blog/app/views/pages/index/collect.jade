@@ -1,0 +1,26 @@
+extends ../../layout
+
+block content
+	.container(id='content')
+		.center-block
+			.btn-group.btn-group-justified(id='btn-group')
+				.btn-group
+					a.btn.btn-primary(href='#') Ajax请求JS/CSS/HTML
+				.btn-group
+					a.btn.btn-success(href='#') 前端框架
+				.btn-group
+					a.btn.btn-info(href='#') Angular
+				.btn-group
+					a.btn.btn-warning(href='#') React
+				.btn-group
+					a.btn.btn-danger(href='#') NodeJs
+		.center-block
+			hr
+			.progress
+				.progress-bar.progress-bar-success.progress-bar-striped(role="progressbar",aria-valuemin="0",aria-valuemax="100",aria-valuenow="60",style="width:60%")
+					span.sr-only 60%
+		.center-block
+			.list-group
+				each angularitem in collect.angular
+					a.list-group-item(href='/collect/') #{angularitem}
+			

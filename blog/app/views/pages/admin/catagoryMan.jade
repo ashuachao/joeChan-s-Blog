@@ -1,0 +1,24 @@
+.center-block(id='Manage')
+	.row
+		span.pull-right 
+			a(href='/admin/catagory/edit/#{catagory.id}').btn.btn-primary New catagory
+		br
+		br
+		table.table.table-hover.table-bordered.text-center
+			thead
+				tr  
+					th.text-center Cata
+					//- th Time
+					th.text-center ArtNum
+					th.text-center View
+					th.text-center Modify
+					th.text-center Delete
+			tbody 
+				each catagory in catagories
+					tr(class = 'catagory-#{catagory._id}')
+						td #{catagory.name}
+						//- td #{article.meta.updateAt.format('MM/DD/YYYY')}
+						td #{catagory.articles.length}          
+						td: a.btn.btn-success.btn-sm(target='_blank',href='/catagory/#{catagory._id}') View
+						td: a.btn.btn-success.btn-sm(target='_blank',href='/admin/catagory/edit/#{catagory._id}') Modify
+						td: a.btn.btn-danger.btn-sm(data-id = '#{catagory._id}',href='/admin/catagory/delete/#{catagory._id}') Delete

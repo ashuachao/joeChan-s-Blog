@@ -1,0 +1,19 @@
+.center-block(id='Manage')
+	ul.media-list
+		each comment in comments
+			li.media
+				.media-left
+					//- a.comments(href="#comments")
+					img.media-object(src='/images/1.jpg',alt='img',style="width:64px;height:64px")
+				.media-body
+					h4.media-heading #{comment.from} 
+						a.comments.glyphicon.glyphicon-remove(href='/admin/commet/del',data-cid='#{comment._id}',data-to='#{comment.from}') del 
+					p.well #{comment.content}
+					each reply in comment.reply
+						.media
+							.media-left
+								img.media-object(src='/images/1.jpg',alt='img',style="width:64px;height:64px")
+							.media-body
+								h4.media-heading #{reply.from}
+									//- a.comments.glyphicon.glyphicon-pencil(href='#comments',data-cid='#{comment._id}',data-to='#{comment.from}') reply
+								p.well #{reply.content}

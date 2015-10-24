@@ -1,0 +1,57 @@
+extends ../../layout
+
+block content
+	.container(id='content')
+		.center-block
+			.panel.panel-danger
+				.panel-heading 
+					span #{keyword}
+					span 搜索结果
+		if articles && articles.length>0
+			each article in articles
+				section.center-block#articleShow
+						.container-fluid
+							.row.center-block(id='art')
+								.col-md-10.col-sm-10.col-xs-10(id='art-right')
+									.panel.panel-default
+										.panel-heading 
+											span.panel-title 
+												a(href='/article/#{article.id}')
+													strong #{article.title}
+											.pull-right
+												span.label.label-info
+													span.articleLike.glyphicon.glyphicon-heart #{article.like}	
+										.panel-body 
+											.center-block.article
+												.thumbnail.articleImg
+													img(src='/uploads/#{article.poster}')
+										.panel-footer
+											h4 #{article.title}
+												span.pull-right
+													a(href='/article/#{article.id}')
+														span.label.label-success more更多
+											hr
+											p #{article.content}
+
+			ul.pagination.pull-right
+				- for (var i = 0; i < totalPage; i++) {
+					- if (currentPage == (i + 1)) {
+						li.active
+							span #{currentPage}
+					- }
+					- else {
+						li
+							a(href='/result?#{query}&p=#{i+1}') #{i + 1}
+					- }
+				- }
+			//- ul.pagination
+			//- 	- for (var i=0;i<totalPage;i++) {
+			//- 		- if (currentPage == (i+1) {
+			//- 			li.active
+			//- 				span #{currentPage}
+			//- 		- } else {
+			//- 			li
+			//- 				a(href='/result?#{query}&p=#{i}') #{i}
+			//- 		- }
+			//- 	- }
+						

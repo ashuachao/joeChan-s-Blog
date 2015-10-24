@@ -1,0 +1,52 @@
+extends ../../layout
+
+block content
+	.container(id='content')
+		.center-block
+			.jumbotron
+				h3.glyphicon.glyphicon-link  hi~这是评论区,留下你想说的话吧
+				hr
+				p.lead.glyphicon.glyphicon-pushpin  目前已经有了
+					span.badge.badge-success 
+					span 条评论咯
+				a.pull-right.btn.btn-danger U Message
+			.comment		
+				ul.media-list
+					each comment in comments
+						li.media
+							.media-left
+								//- a.comments(href="#comments")
+								img.media-object(src='/images/1.jpg',alt='img',style="width:64px;height:64px")
+							.media-body
+								h4.media-heading #{comment.from} 
+									a.comments.glyphicon.glyphicon-pencil(href='#comments',data-cid='#{comment._id}',data-to='#{comment.from}') reply 
+								p.well #{comment.content}
+								each reply in comment.reply
+									.media
+										.media-left
+											img.media-object(src='/images/1.jpg',alt='img',style="width:64px;height:64px")
+										.media-body
+											h4.media-heading #{reply.from}
+												//- a.comments.glyphicon.glyphicon-pencil(href='#comments',data-cid='#{comment._id}',data-to='#{comment.from}') reply
+											p.well #{reply.content}
+						//- li.media
+						//- 	.media-left
+						//- 		img.media-object(src='/images/1.jpg',alt='img',style="width:64px;height:64px")
+						//- 	.media-body
+						//- 		h4.media-heading joechan
+						//- 		p.well Look我是大傻逼似的个办法就是，大撒把快捷方式的空间吧倒是不错撒把快捷sssss方式的空间吧倒是不错撒把快捷方式的空间吧倒是不错撒把快捷方式的空间吧倒是不错撒把快捷方式的空间吧倒是不错撒把快捷方式的空间吧倒是不错
+
+			.alert.alert-success(id='comments')
+				form(id='commentInput')
+					.input-group
+						span.input-group-addon @
+						input.form-control(type='text',placeholder='Input your Name',id='commentName')
+					br
+					.input-group
+						span.input-group-addon
+							span.glyphicon.glyphicon-pencil
+						textarea.form-control(row='5',placeholder='Input your message to Me',id='commentText')
+					br
+				a(href='/comment/save',id='commentSend').btn.btn-primary.center-block Send
+	script(src='/javascripts/comment.js')
+	
